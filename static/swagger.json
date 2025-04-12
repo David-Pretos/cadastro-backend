@@ -1,0 +1,89 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Cadastro API",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/cadastrar_usuario": {
+      "post": {
+        "summary": "Cadastrar novo usuário",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": { "type": "string" },
+                "email": { "type": "string" }
+              },
+              "required": ["name", "email"]
+            }
+          }
+        ],
+        "responses": {
+          "201": { "description": "Usuário cadastrado com sucesso" },
+          "400": { "description": "Entrada inválida ou email já existe" }
+        }
+      }
+    },
+    "/buscar_usuario": {
+      "get": {
+        "summary": "Obter usuários",
+        "responses": {
+          "200": {
+            "description": "Lista de usuários",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": { "type": "integer" },
+                  "name": { "type": "string" },
+                  "email": { "type": "string" }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/deletar_usuario/{user_id}": {
+      "delete": {
+        "summary": "Excluir usuário dado o seu ID",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "user_id",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": { "description": "Usuário excluído com sucesso" },
+          "404": { "description": "Usuário não encontrado" }
+        }
+      }
+    },
+    "/time": {
+      "get": {
+        "summary": "Obter a hora atual",
+        "responses": {
+          "200": {
+            "description": "Hora atual no formato de horas, minutos e segundos",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "hour": { "type": "integer" },
+                "minute": { "type": "integer" },
+                "second": { "type": "integer" }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
