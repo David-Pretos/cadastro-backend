@@ -1,0 +1,19 @@
+# Ignore database file
+user.db
+
+# Ignore virtual environment directory
+venv/
+
+# Byte-compiled Python files
+__pycache__/
+*.py[cod]
+
+# Environment variables
+.env
+
+# Logs
+*.log
+
+# System files
+.DS_Store
+Thumbs.db
