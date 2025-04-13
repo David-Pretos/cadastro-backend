@@ -32,4 +32,8 @@ Sistema responsável pelo cadastro de usuários, incluindo email, na base de dad
 
 - python app.py
 
+## Para rodar o Swagger:
+
+- http://127.0.0.1:5000/swagger
+
 
